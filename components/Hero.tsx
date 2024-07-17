@@ -3,6 +3,7 @@ import { Spotlight } from './ui/Spotlight'
 import ToggleMode from './ToggleMode'
 import { TextRevealCard } from './ui/text-reveal-card'
 import MagicButton from './ui/MagicButton'
+import { FaLocationArrow } from 'react-icons/fa'
 
 const Hero = () => {
     return (
@@ -43,10 +44,24 @@ const Hero = () => {
 
         </TextRevealCard>
         <p className="text-center md:tracking-wider mb-4 text-sm md:text-lg lg:text-2xl">
-            Mission : Change the world through computer science.
-          </p>
+  Mission : Serve and Change the world through&nbsp;
+  <span style={{ 
+    background: 'linear-gradient(to right, blue, purple)', 
+    WebkitBackgroundClip: 'text', 
+    color: 'transparent',
+    textShadow: '2px 2px 4px rgba(0, 0, 0, 0.2)'
+  }}>
+    computer science
+  </span>.
+</p>
+
+
+
          <a href='#about'>
-          <MagicButton 
+          <MagicButton
+           title='Show my work  '
+           icon={<FaLocationArrow/>}
+           position='right'
           />
           </a>
 
