@@ -8,7 +8,7 @@ import { FaLocationArrow } from 'react-icons/fa'
 const Hero = () => {
     return (
       <div className="pb-20 pt-36 relative">
-      <div className='absolute top-0 right-0 m-4 z-20'><ToggleMode/></div>
+      
       <div>
         <Spotlight
           className="-top-40 -left-10 md:-left-32 md:-top-20 h-screen"

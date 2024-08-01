@@ -1,7 +1,8 @@
+// app/layout.tsx
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import { ThemeProvider } from "./provider"; 
+import { Providers } from "./provider"; // Adjust the import to use Providers
 import Nav from "@/components/Nav";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -19,16 +20,15 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-      <ThemeProvider
-            attribute="class"
-            defaultTheme="dark"
-            enableSystem
-            disableTransitionOnChange
-          >
-            {/* <Nav /> */}
-            {children}
-        </ThemeProvider>
-
+        <Providers
+          attribute="class"
+          defaultTheme="dark"
+          enableSystem
+          disableTransitionOnChange
+        >
+          {/* <Nav /> */}
+          {children}
+        </Providers>
       </body>
     </html>
   );

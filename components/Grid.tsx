@@ -1,11 +1,10 @@
-import React from 'react'
-import { BentoGrid, BentoGridItem } from './BentoGrid'
-import { gridItems } from '@/data'
+import { gridItems } from "@/data";
+import { BentoGrid, BentoGridItem } from "./ui/BentoGrid";
 
 const Grid = () => {
   return (
     <section id="about">
-        <BentoGrid>
+      <BentoGrid className="w-full py-20">
         {gridItems.map((item, i) => (
           <BentoGridItem
             id={item.id}
@@ -16,14 +15,14 @@ const Grid = () => {
             // remove original classname condition
             className={item.className}
             img={item.img}
-            // imgClassName={item.imgClassName}
-            // titleClassName={item.titleClassName}
-            // spareImg={item.spareImg}
+            imgClassName={item.imgClassName}
+            titleClassName={item.titleClassName}
+            spareImg={item.spareImg}
           />
         ))}
-        </BentoGrid>
+      </BentoGrid>
     </section>
-  )
-}
+  );
+};
 
-export default Grid
+export default Grid;
