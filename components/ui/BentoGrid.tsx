@@ -10,6 +10,7 @@ import { BackgroundGradientAnimation } from "./GradientBg";
 import GridGlobe from "./GridGlobe";
 import animationData from "@/data/confetti.json";
 import MagicButton from "./MagicButton";
+import { FaDownload } from 'react-icons/fa6';
 
 export const BentoGrid = ({
   className,
@@ -49,44 +50,44 @@ export const BentoGridItem = ({
   titleClassName?: string;
   spareImg?: string;
 }) => {
-  const leftLists = ["ReactJS", "Express", "Typescript"];
-  const rightLists = ["VueJS", "NuxtJS", "GraphQL"];
+  const leftLists = ["Python", "OpenCV", "TensorFlow"];
+  const rightLists = ["ML/AI", "NUMPY", "SciPy"];
 
   const [copied, setCopied] = useState(false);
   const [acSubmissionNum, setAcSubmissionNum] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const defaultOptions = {
-    loop: copied,
-    autoplay: copied,
-    animationData: animationData,
+    // loop: copied,
+    // autoplay: copied,
+    // animationData: animationData,
     rendererSettings: {
       preserveAspectRatio: "xMidYMid slice",
     },
   };
 
-  const handleCopy = () => {
-    const text = "jasminegarg2016@gmail.com";
-    navigator.clipboard.writeText(text);
-    setCopied(true);
-  };
+  // const handleCopy = () => {
+  //   const text = "jasminegarg2016@gmail.com";
+  //   navigator.clipboard.writeText(text);
+  //   setCopied(true);
+  // };
 
-  useEffect(() => {
-    const fetchData = async () => {
-      setLoading(true);
-      try {
-        const response = await fetch(`/api/leetcode?username=jazzminegarg`);
-        const data = await response.json();
-        setAcSubmissionNum(data?.matchedUser?.submitStats?.acSubmissionNum || []);
-      } catch (error) {
-        setError(error);
-      } finally {
-        setLoading(false);
-      }
-    };
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     setLoading(true);
+  //     try {
+  //       // const response = await fetch(`/api/leetcode?username=jazzminegarg`);
+  //       const data = await response.json();
+  //       setAcSubmissionNum(data?.matchedUser?.submitStats?.acSubmissionNum || []);
+  //     } catch (error) {
+  //       setError(error);
+  //     } finally {
+  //       setLoading(false);
+  //     }
+  //   };
 
-    fetchData();
-  }, []);
+  //   fetchData();
+  // }, []);
 
   return (
     <div
@@ -190,24 +191,38 @@ export const BentoGridItem = ({
               </div>
             </div>
           )}
-          {id === 6 && (
-            <div className="mt-5 relative">
-              <div
-                className={`absolute -bottom-5 right-0 ${copied ? "block" : "block"
-                  }`}
-              >
-                <Lottie options={defaultOptions} height={200} width={400} />
-              </div>
+{id === 6 && (
+  <div className="mt-5 relative">
+    {/* <div
+      className={`absolute -bottom-5 right-0 `}
+    >
+      <Lottie options={defaultOptions} height={200} width={400} />
+    </div> */}
 
-              <MagicButton
-                title={copied ? "Email is Copied!" : "Copy my email address"}
-                icon={<IoCopyOutline />}
-                position="left"
-                handleClick={handleCopy}
-                otherClasses="!bg-[#161A31]"
-              />
-            </div>
-          )}
+    {/* Button to view the CV */}
+    <a
+      href="/Jasmine_Garg_Resume.pdf"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="flex items-center !bg-[#161A31] px-4 py-2 rounded-md text-white"// Stop propagation to prevent confetti
+    >
+      View my CV
+    </a>
+
+    {/* Button to download the CV */}
+    <a
+      href="/Jasmine_Garg_Resume.pdf"
+      download="Jasmine_Garg's.pdf"
+      className="flex items-center !bg-[#161A31] px-4 py-2 rounded-md text-white mt-3" // Stop propagation to prevent confetti
+    >
+      <FaDownload className="mr-2" />
+      Download my CV
+    </a>
+  </div>
+)}
+
+
+
         </div>
       </div>
     </div>
