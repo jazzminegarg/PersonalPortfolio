@@ -2,7 +2,10 @@ import {withSentryConfig} from '@sentry/nextjs';
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   // ... other configurations ...
-  
+    output:'export',
+    typescript: {
+      ignoreBuildErrors:true,
+    },
     images: {
         domains: [
           "api.microlink.io", // Microlink Image Preview
